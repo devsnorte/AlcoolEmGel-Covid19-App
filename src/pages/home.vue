@@ -5,66 +5,103 @@
       <f7-nav-left>
         <f7-link icon-ios="f7:menu" icon-aurora="f7:menu" icon-md="material:menu" panel-open="left"></f7-link>
       </f7-nav-left>
-      <f7-nav-title sliding>Onde Tem Alcool em Gel</f7-nav-title>
-      <f7-nav-right>
-        <f7-link icon-ios="f7:menu" icon-aurora="f7:menu" icon-md="material:menu" panel-open="right"></f7-link>
-      </f7-nav-right>
-      <f7-nav-title-large sliding>Onde Tem Alcool em Gel</f7-nav-title-large>
+      <f7-nav-title sliding>Cadê o Alcool?</f7-nav-title>
+      <f7-nav-title-large sliding>Cadê o Alcool?</f7-nav-title-large>
     </f7-navbar>
-    <!-- Toolbar-->
-    <f7-toolbar bottom>
-      <f7-link>Left Link</f7-link>
-      <f7-link>Right Link</f7-link>
-    </f7-toolbar>
     <!-- Page content-->
-    <f7-block strong>
-      <p>Here is your blank Framework7 app. Let's see what we have here.</p>
-    </f7-block>
-
-    <f7-block-title>Navigation</f7-block-title>
-    <f7-list>
-      <f7-list-item link="/about/" title="About"></f7-list-item>
-      <f7-list-item link="/form/" title="Form"></f7-list-item>
-    </f7-list>
-
-    <f7-block-title>Modals</f7-block-title>
-    <f7-block strong>
-      <f7-row>
-        <f7-col width="50">
-          <f7-button fill raised popup-open="#my-popup">Popup</f7-button>
-        </f7-col>
-        <f7-col width="50">
-          <f7-button fill raised login-screen-open="#my-login-screen">Login Screen</f7-button>
-        </f7-col>
-      </f7-row>
-    </f7-block>
-
-    <f7-block-title>Panels</f7-block-title>
-    <f7-block strong>
-      <f7-row>
-        <f7-col width="50">
-          <f7-button fill raised panel-open="left">Left Panel</f7-button>
-        </f7-col>
-        <f7-col width="50">
-          <f7-button fill raised panel-open="right">Right Panel</f7-button>
-        </f7-col>
-      </f7-row>
-    </f7-block>
-
-    <f7-list>
-      <f7-list-item
-        title="Dynamic (Component) Route"
-        link="/dynamic-route/blog/45/post/125/?foo=bar#about"
-      ></f7-list-item>
-      <f7-list-item
-        title="Default Route (404)"
-        link="/load-something-that-doesnt-exist/"
-      ></f7-list-item>
-      <f7-list-item
-        title="Request Data & Load"
-        link="/request-and-load/user/123456/"
-      ></f7-list-item>
-    </f7-list>
-
+    <l-map
+      v-if="showMap"
+      :zoom="zoom"
+      :center="center"
+      :options="mapOptions"
+      style="height: 100%"
+      @update:center="centerUpdate"
+      @update:zoom="zoomUpdate"
+    >
+      <l-tile-layer
+        :url="url"
+        :attribution="attribution"
+      />
+      <l-marker :lat-lng="withPopup">
+        <l-popup>
+          <div @click="innerClick">
+            I am a popup
+            <p v-show="showParagraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
+              Donec finibus semper metus id malesuada.
+            </p>
+          </div>
+        </l-popup>
+      </l-marker>
+      <l-marker :lat-lng="withTooltip">
+        <l-tooltip :options="{ permanent: true, interactive: true }">
+          <div @click="innerClick">
+            I am a tooltip
+            <p v-show="showParagraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
+              Donec finibus semper metus id malesuada.
+            </p>
+          </div>
+        </l-tooltip>
+      </l-marker>
+    </l-map>
   </f7-page>
 </template>
+
+<script>
+  // Import Vue
+  import Vue from 'vue';
+  // Leaflet
+  import { latLng } from "leaflet"; 
+  import { 
+    LMap, 
+    LTileLayer, 
+    LMarker, 
+    LPopup, 
+    LTooltip 
+  } from "vue2-leaflet"; 
+  import 'leaflet/dist/leaflet.css';
+   export default { 
+    name: "Example", 
+    components: { 
+      LMap, 
+      LTileLayer, 
+      LMarker, 
+      LPopup, 
+      LTooltip 
+    }, 
+    data() { 
+      return { 
+        zoom: 13, 
+        center: latLng(47.41322, -1.219482), 
+        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+        attribution: 'VUE.JS NORTE', 
+        withPopup: latLng(47.41322, -1.219482), 
+        withTooltip: latLng(47.41422, -1.250482), 
+        currentZoom: 11.5, 
+        currentCenter: latLng(47.41322, -1.219482), 
+        showParagraph: false, 
+        mapOptions: { 
+          zoomSnap: 0.5 
+        }, 
+        showMap: true 
+      }; 
+    }, 
+    methods: { 
+      zoomUpdate(zoom) { 
+        this.currentZoom = zoom; 
+      }, 
+      centerUpdate(center) { 
+        this.currentCenter = center; 
+      }, 
+      showLongText() { 
+        this.showParagraph = !this.showParagraph; 
+      }, 
+      innerClick() { 
+        alert("Click!"); 
+      } 
+    } 
+  }; 
+</script>

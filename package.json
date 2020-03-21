@@ -71,8 +71,10 @@
     "framework7": "^5.5.1",
     "framework7-icons": "^3.0.0",
     "framework7-vue": "^5.5.1",
+    "leaflet": "^1.6.0",
     "template7": "^1.4.2",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

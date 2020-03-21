@@ -5,19 +5,14 @@
   <f7-panel left cover theme-dark>
     <f7-view>
       <f7-page>
-        <f7-navbar title="Left Panel"></f7-navbar>
-        <f7-block>Left panel content goes here</f7-block>
-      </f7-page>
-    </f7-view>
-  </f7-panel>
-
-
-  <!-- Right panel with reveal effect-->
-  <f7-panel right reveal theme-dark>
-    <f7-view>
-      <f7-page>
-        <f7-navbar title="Right Panel"></f7-navbar>
-        <f7-block>Right panel content goes here</f7-block>
+        <f7-navbar title="Menu"></f7-navbar>
+        <f7-block>
+          Seja bem vindo!
+          <f7-list>
+            <f7-list-item link="/about/" title="Sobre o Aplicativo"></f7-list-item>
+            <!--<f7-list-item link="/form/" title="Form"></f7-list-item>-->
+          </f7-list>  
+        </f7-block>        
       </f7-page>
     </f7-view>
   </f7-panel>
@@ -33,7 +28,7 @@
       <f7-page>
         <f7-navbar title="Popup">
           <f7-nav-right>
-            <f7-link popup-close>Close</f7-link>
+            <f7-link popup-close>Fechar</f7-link>
           </f7-nav-right>
         </f7-navbar>
         <f7-block>
