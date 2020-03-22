@@ -1,12 +1,21 @@
 <template>
   <f7-page name="home">
     <!-- Top Navbar -->
-    <f7-navbar :sliding="false" large>
+    <f7-navbar :sliding="false" >
       <f7-nav-left>
         <f7-link icon-ios="f7:menu" icon-aurora="f7:menu" icon-md="material:menu" panel-open="left"></f7-link>
       </f7-nav-left>
       <f7-nav-title sliding>Cadê o Alcool?</f7-nav-title>
-      <f7-nav-title-large sliding>Cadê o Alcool?</f7-nav-title-large>
+      <!--<f7-nav-right>
+        <f7-link class="searchbar-enable" data-searchbar=".searchbar-demo" icon-ios="f7:search" icon-aurora="f7:search" icon-md="material:search"></f7-link>
+      </f7-nav-right>
+      <f7-searchbar
+        class="searchbar-demo"
+        expandable
+        search-container=".search-list"
+        search-in=".item-title"
+        :disable-button="!$theme.aurora"
+      ></f7-searchbar>-->
     </f7-navbar>
     <!-- Page content-->
     <l-map
@@ -17,6 +26,7 @@
       style="height: 100%"
       @update:center="centerUpdate"
       @update:zoom="zoomUpdate"
+      ref="myMap"
     >
       <l-tile-layer
         :url="url"
@@ -47,6 +57,26 @@
         </l-tooltip>
       </l-marker>
     </l-map>
+     <!-- Swipe to close demo sheet -->
+    <f7-sheet
+      class="demo-sheet-swipe-to-close"
+      style="height:auto; --f7-sheet-bg-color: #fff;"
+      swipe-to-close
+      backdrop
+    >
+      <f7-page-content>
+        <f7-block-title large>
+          Farmacia ExtraFarma 
+          <span class="badge color-red">Fechado</span>
+          <span class="badge color-green">Aberto</span> 
+        </f7-block-title>
+        <f7-block>
+          <i class="f7-icons size-22 color-red">circle</i> Álcool em Gel<br>
+          <i class="f7-icons size-22">circle_fill</i> Máscara<br>
+          <i class="f7-icons size-22">circle_fill</i> Luva<br>
+        </f7-block>
+      </f7-page-content>
+    </f7-sheet>
   </f7-page>
 </template>
 
@@ -54,23 +84,19 @@
   // Import Vue
   import Vue from 'vue';
   // Leaflet
-  import { latLng } from "leaflet"; 
-  import { 
-    LMap, 
-    LTileLayer, 
-    LMarker, 
-    LPopup, 
-    LTooltip 
-  } from "vue2-leaflet"; 
+  import { L,latLng, DomEvent } from "leaflet"; 
+  import { LMap, LTileLayer, LMarker, LPopup, LTooltip, LControl } from "vue2-leaflet"; 
   import 'leaflet/dist/leaflet.css';
-   export default { 
+  // first we import super class
+  //
+  
+  export default  { 
     name: "Example", 
-    components: { 
-      LMap, 
+    components: { LMap, 
       LTileLayer, 
       LMarker, 
       LPopup, 
-      LTooltip 
+      LTooltip
     }, 
     data() { 
       return { 
@@ -84,9 +110,9 @@
         currentCenter: latLng(47.41322, -1.219482), 
         showParagraph: false, 
         mapOptions: { 
-          zoomSnap: 0.5 
+          zoomSnap: 0.5
         }, 
-        showMap: true 
+        showMap: true
       }; 
     }, 
     methods: { 
@@ -100,8 +126,15 @@
         this.showParagraph = !this.showParagraph; 
       }, 
       innerClick() { 
-        alert("Click!"); 
-      } 
-    } 
-  }; 
+        const self = this;
+        const $ = self.$$;
+        self.sheet = self.$f7.sheet.open(".demo-sheet-swipe-to-close")
+      },
+      getPosition(){
+        navigator.geolocation.watchPosition((position)=>{
+          this.$root.$setState({ currentCenter: latLng(position.coords.latitude, position.coords.longitude)})
+        });
+      }
+    },
+}; 
 </script>

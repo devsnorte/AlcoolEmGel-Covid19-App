@@ -96,7 +96,7 @@
           // Cordova Statusbar settings
           statusbar: {
             iosOverlaysWebView: true,
-            androidOverlaysWebView: false,
+            androidOverlaysWebView: true,
           },
         },
 
