@@ -32,30 +32,8 @@
         :url="url"
         :attribution="attribution"
       />
-      <l-marker :lat-lng="withPopup">
-        <l-popup>
-          <div @click="innerClick">
-            I am a popup
-            <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
-            </p>
-          </div>
-        </l-popup>
-      </l-marker>
-      <l-marker :lat-lng="withTooltip">
-        <l-tooltip :options="{ permanent: true, interactive: true }">
-          <div @click="innerClick">
-            I am a tooltip
-            <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
-            </p>
-          </div>
-        </l-tooltip>
-      </l-marker>
+      <l-marker :lat-lng="withTooltip" @click="innerClick"></l-marker>
+      <l-locatecontrol/>
     </l-map>
      <!-- Swipe to close demo sheet -->
     <f7-sheet
@@ -66,14 +44,19 @@
     >
       <f7-page-content>
         <f7-block-title large>
-          Farmacia ExtraFarma 
-          <span class="badge color-red">Fechado</span>
-          <span class="badge color-green">Aberto</span> 
+          <f7-row>
+            <f7-col width="100">Farmacia</f7-col> 
+            <f7-col width="100">ExtraFarma</f7-col>
+            <f7-col width="100">
+              <span class="badge color-red">Fechado</span>
+              <span class="badge color-green">Aberto</span>
+            </f7-col>
+          </f7-row>
         </f7-block-title>
         <f7-block>
-          <i class="f7-icons size-22 color-red">circle</i> Álcool em Gel<br>
-          <i class="f7-icons size-22">circle_fill</i> Máscara<br>
-          <i class="f7-icons size-22">circle_fill</i> Luva<br>
+          <i class="f7-icons size-22 marker-red">circle</i> Álcool em Gel<br>
+          <i class="f7-icons size-22 marker-green">circle_fill</i> Máscara<br>
+          <i class="f7-icons size-22 marker-green">circle_fill</i> Luva<br>
         </f7-block>
       </f7-page-content>
     </f7-sheet>
@@ -86,10 +69,8 @@
   // Leaflet
   import { L,latLng, DomEvent } from "leaflet"; 
   import { LMap, LTileLayer, LMarker, LPopup, LTooltip, LControl } from "vue2-leaflet"; 
-  import 'leaflet/dist/leaflet.css';
-  // first we import super class
-  //
-  
+  import Vue2LeafletLocatecontrol from 'vue2-leaflet-locatecontrol/Vue2LeafletLocatecontrol';
+  Vue.component('l-locatecontrol', Vue2LeafletLocatecontrol)
   export default  { 
     name: "Example", 
     components: { LMap, 
@@ -101,13 +82,13 @@
     data() { 
       return { 
         zoom: 13, 
-        center: latLng(47.41322, -1.219482), 
+        center: latLng(-1.45502, -48.5024), 
         url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
         attribution: 'VUE.JS NORTE', 
-        withPopup: latLng(47.41322, -1.219482), 
-        withTooltip: latLng(47.41422, -1.250482), 
+        //withPopup: latLng(-1.45502, -48.5024), 
+        withTooltip: latLng(-1.45502, -48.5024), 
         currentZoom: 11.5, 
-        currentCenter: latLng(47.41322, -1.219482), 
+        currentCenter: latLng(-1.45502, -48.5024), 
         showParagraph: false, 
         mapOptions: { 
           zoomSnap: 0.5
@@ -138,3 +119,12 @@
     },
 }; 
 </script>
+<style>
+  @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+  .marker-green{
+    color:green !important;
+  }
+  .marker-red{
+    color:red !important;
+  }
+</style>

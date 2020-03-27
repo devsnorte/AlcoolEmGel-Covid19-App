@@ -98,3 +98,10 @@ framework7 generate-assets --ui
 
 Love Framework7? Support project by donating or pledging on patreon:
 https://patreon.com/vladimirkharlampidi
+
+## Componentes usados
+´´´
+npm install leaflet
+npm install vue2-leaflet
+npm install leaflet-defaulticon-compatibility
+´´´

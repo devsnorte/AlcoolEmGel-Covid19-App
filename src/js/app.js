@@ -17,6 +17,12 @@ import '../css/app.css';
 // Import App Component
 import App from '../components/app.vue';
 
+// Leaflet correção de icones
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'; // Re-uses images from ~leaflet package
+import * as L from 'leaflet';
+import 'leaflet-defaulticon-compatibility';
+
 // Init Framework7-Vue Plugin
 Framework7.use(Framework7Vue);
 
