@@ -42,6 +42,7 @@
       swipe-to-close
       backdrop
     >
+      <div class="swipe-handler"></div>
       <f7-page-content>
         <f7-block-title large>
           <f7-row>
@@ -126,5 +127,27 @@
   }
   .marker-red{
     color:red !important;
+  }
+  .swipe-handler {
+    height: 16px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    background: #fff;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .swipe-handler::after {
+    content: '';
+    width: 36px;
+    height: 6px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -18px;
+    margin-top: -3px;
+    border-radius: 3px;
+    background: #666;
   }
 </style>

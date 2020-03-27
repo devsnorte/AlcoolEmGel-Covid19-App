@@ -9,7 +9,7 @@
         <f7-block>
           Seja bem vindo!
           <f7-list>
-            <f7-list-item link="/home" title="Sobre o Aplicativo"></f7-list-item>
+            <f7-list-item link="/about/" title="Sobre o Aplicativo"></f7-list-item>
             <!--<f7-list-item link="/form/" title="Form"></f7-list-item>-->
           </f7-list>  
         </f7-block>        
@@ -19,7 +19,7 @@
 
 
   <!-- Your main view, should have "view-main" class -->
-  <f7-view main class="safe-areas" url="/intro/"></f7-view>
+  <f7-view main class="safe-areas" url="/"></f7-view>
 
 
   <!-- Popup -->
