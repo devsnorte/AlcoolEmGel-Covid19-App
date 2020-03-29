@@ -3,4 +3,11 @@
   height: 100vh;
 }
 
-/* Your app custom styles here */
+/* Your app custom styles here 
+.framework7-root{
+  margin-top: 25px;
+}*/
+
+.page {
+  background-color: #f3f3f3 !important;
+}

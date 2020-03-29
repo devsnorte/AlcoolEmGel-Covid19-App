@@ -2,7 +2,7 @@
 <f7-app :params="f7params" >
 
   <!-- Left panel with cover effect-->
-  <f7-panel left cover theme-dark>
+  <f7-panel left cover>
     <f7-view>
       <f7-page>
         <f7-navbar title="Menu"></f7-navbar>
@@ -19,7 +19,7 @@
 
 
   <!-- Your main view, should have "view-main" class -->
-  <f7-view main class="safe-areas" url="/"></f7-view>
+  <f7-view main class="safe-areas" url="/intro/"></f7-view>
 
 
   <!-- Popup -->
@@ -70,11 +70,10 @@
 </f7-app>
 </template>
 <script>
-  import { Device }  from 'framework7/framework7-lite.esm.bundle.js';
+  import { Device, Dom7 }  from 'framework7/framework7-lite.esm.bundle.js';
   import cordovaApp from '../js/cordova-app.js';
   import routes from '../js/routes.js';
   
-
   export default {
     data() {
       return {
@@ -88,6 +87,10 @@
           // App routes
           routes: routes,
 
+          // Request
+          request:{
+            url:"http://127.0.0.1:8000/api/auth/"
+          },
 
           // Input settings
           input: {
@@ -97,7 +100,9 @@
           // Cordova Statusbar settings
           statusbar: {
             iosOverlaysWebView: true,
-            androidOverlaysWebView: true,
+            androidOverlaysWebView: false,
+            androidBackgroundColor:"#f3f3f3",
+            androidTextColor:"black"
           },
         },
 

@@ -1,10 +1,13 @@
-
-import HomePage from '../pages/home.vue';
+// Sobre o aplicativo
 import AboutPage from '../pages/about.vue';
-import FormPage from '../pages/form.vue';
-import BusinessPage from '../pages/business.vue';
-import IntroPage from '../pages/intro.vue';
 
+import IntroPage from '../pages/intro.vue';
+// Business
+import BusinessPage from '../pages/business/business.vue';
+import FormPage from '../pages/business/register.vue';
+import LoginPage from '../pages/business/login.vue';
+//Cliente
+import HomePage from '../pages/client/home.vue';
 
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
@@ -20,8 +23,12 @@ var routes = [
     component: AboutPage,
   },
   {
-    path: '/form/',
+    path: '/register/',
     component: FormPage,
+  },
+  {
+    path: '/login/',
+    component: LoginPage,
   },
   {
     path:'/intro/',

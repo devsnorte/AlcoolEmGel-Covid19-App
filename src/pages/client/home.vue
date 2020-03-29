@@ -5,11 +5,11 @@
       <f7-nav-left>
         <f7-link icon-ios="f7:menu" icon-aurora="f7:menu" icon-md="material:menu" panel-open="left"></f7-link>
       </f7-nav-left>
-      <f7-nav-title sliding>Cadê o Alcool?</f7-nav-title>
-      <!--<f7-nav-right>
-        <f7-link class="searchbar-enable" data-searchbar=".searchbar-demo" icon-ios="f7:search" icon-aurora="f7:search" icon-md="material:search"></f7-link>
+      <f7-nav-title sliding>Cadê o Alcool em Gel?</f7-nav-title>
+      <f7-nav-right>
+        <!--<f7-link class="searchbar-enable" data-searchbar=".searchbar-demo" icon-ios="f7:search" icon-aurora="f7:search" icon-md="material:search"></f7-link>-->
       </f7-nav-right>
-      <f7-searchbar
+      <!--<f7-searchbar
         class="searchbar-demo"
         expandable
         search-container=".search-list"
@@ -40,8 +40,7 @@
       class="demo-sheet-swipe-to-close"
       style="height:auto; --f7-sheet-bg-color: #fff;"
       swipe-to-close
-      backdrop
-    >
+      backdrop>
       <div class="swipe-handler"></div>
       <f7-page-content>
         <f7-block-title large>
@@ -55,7 +54,8 @@
           </f7-row>
         </f7-block-title>
         <f7-block>
-          <i class="f7-icons size-22 marker-red">circle</i> Álcool em Gel<br>
+          <i class="f7-icons size-22 marker-red">circle</i> Álcool em Gel 70%<br>
+          <i class="f7-icons size-22 marker-red">circle</i> Álcool Líquido 70%<br>
           <i class="f7-icons size-22 marker-green">circle_fill</i> Máscara<br>
           <i class="f7-icons size-22 marker-green">circle_fill</i> Luva<br>
         </f7-block>
@@ -82,8 +82,8 @@
     }, 
     data() { 
       return { 
-        zoom: 13, 
-        center: latLng(-1.45502, -48.5024), 
+        zoom: 3, 
+        center: latLng(-15.77972, -47.92972), 
         url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
         attribution: 'VUE.JS NORTE', 
         //withPopup: latLng(-1.45502, -48.5024), 
@@ -149,5 +149,10 @@
     margin-top: -3px;
     border-radius: 3px;
     background: #666;
+  }
+  .leaflet-bar a{
+    width: 45px !important;
+    height: 45px !important;
+    line-height: 45px !important;
   }
 </style>
