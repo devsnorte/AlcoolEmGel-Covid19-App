@@ -1,21 +1,48 @@
 <template>
   <f7-page name="intro">
-    <!-- Top Navbar
-    <f7-navbar :sliding="false" >
-      <f7-nav-left>
-        <f7-link icon-ios="f7:menu" icon-aurora="f7:menu" icon-md="material:menu" panel-open="left"></f7-link>
-      </f7-nav-left>
-      <f7-nav-title sliding>Cadê o Alcool?</f7-nav-title>
-    </f7-navbar> -->
     <f7-swiper pagination style="height:100vh;">
+      <!-- Slide 0 -->
       <f7-swiper-slide>
         <center>
           <h2 class="padding-top">Olá, seja bem vindo ao</h2>
           <h1>"Cadê o alcool?"</h1>
+          <img :src="images.logo" width="100%">
         </center>
       </f7-swiper-slide>
-      <f7-swiper-slide>Slide 2</f7-swiper-slide>
+      <!-- Slide 1 -->
       <f7-swiper-slide>
+        <center>
+          <h2 class="padding-top">Em caso de algum sintoma procure ajuda e orientação médida</h2>
+          <img :src="images.pano" width="100%">
+        </center>
+      </f7-swiper-slide>
+      <!-- Slide 2 -->
+      <f7-swiper-slide>
+        <center class="padding-top">
+          <h2 class="padding-top">Use sempre álcool em gel 70%</h2>
+          <img :src="images.alcoolemgel" width="100%">
+        </center>
+      </f7-swiper-slide>
+      <!-- Slide 3 -->
+      <f7-swiper-slide>
+        <center class="padding-top">
+          <h2 class="padding-top">Se estiver apresentando os sintomas use mascará</h2>
+          <img :src="images.maks" width="100%">
+        </center>
+      </f7-swiper-slide>
+      <!-- Slide 3 -->
+      <f7-swiper-slide>
+        <center class="padding-top">
+          <h2 class="padding-top">Somos um projeto <br>independente feito por <br>Daniel Pinon com o apoio da comunidade Vue Norte </h2><h3>danielpinon@danielpinon.com.br</h3>
+          <img :src="images.vuejsnorte" width="70%">
+        </center>
+      </f7-swiper-slide>
+      <!-- Slide final -->
+      <f7-swiper-slide>
+        <center class="padding-top">
+          <h2 class="padding-top">Lave sempre suas mãos com água e sabão</h2><h3>Escolha uma opção a baixo:</h3>
+          <img :src="images.lavamao" width="60%">
+        </center>
         <f7-block>
           <f7-row>
             <f7-col width="100">
@@ -38,7 +65,25 @@
   </f7-page>
 </template>
 <script>
+  import logo from '../images/Logo.png';
+  import mask from '../images/002-medical mask.png';
+  import alcoolemgel from '../images/005-disinfectant.png';
+  import pano from '../images/006-sneeze.png';
+  import lavamao from '../images/coronavirus.svg';
+  import vuejsnorte from '../images/vuejs.png';
   export default {
+    data() {
+      return {
+        images:{
+          logo:logo,
+          maks:mask,
+          alcoolemgel:alcoolemgel,
+          pano:pano,
+          lavamao:lavamao,
+          vuejsnorte:vuejsnorte,
+        }
+      };
+    },
     methods:{
       pageClient(){
         localStorage.setItem("intro","0")
