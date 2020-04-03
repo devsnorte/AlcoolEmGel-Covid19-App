@@ -73,7 +73,7 @@
   import { Device, Dom7 }  from 'framework7/framework7-lite.esm.bundle.js';
   import cordovaApp from '../js/cordova-app.js';
   import routes from '../js/routes.js';
-  
+  import { request } from 'framework7-vue';
   export default {
     data() {
       return {
@@ -86,11 +86,6 @@
 
           // App routes
           routes: routes,
-
-          // Request
-          request:{
-            url:"http://127.0.0.1:8000/api/auth/"
-          },
 
           // Input settings
           input: {
@@ -105,7 +100,6 @@
             androidTextColor:"black"
           },
         },
-
         // Login screen data
         username: '',
         password: '',
