@@ -129,7 +129,7 @@
         const app = self.$f7;
         app.preloader.show();
         app.request({
-          url:"http://127.0.0.1:8000/api/auth/business/update",
+          url:"http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/business/update",
           method:"POST",
           headers:{
             Authorization:"Bearer "+localStorage.getItem("key")
@@ -157,7 +157,7 @@
         const app = self.$f7;        
         app.preloader.show();
         app.request({
-          url:"http://127.0.0.1:8000/api/auth/business/update",
+          url:"http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/business/update",
           method:"POST",
           headers:{
             Authorization:"Bearer "+localStorage.getItem("key")
@@ -186,7 +186,7 @@
       if(localStorage.getItem("key")){
         const key = localStorage.getItem("key");
         app.request({
-          url:"http://127.0.0.1:8000/api/auth/business",
+          url:"http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/business",
           method:"POST",
           headers:{
             Authorization:"Bearer "+key

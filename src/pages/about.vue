@@ -16,8 +16,9 @@
       </p>
     </f7-block>
     <f7-block>
-      <center>Quem financiou:</center> <br>
       <center>Contamos com os apoios de:</center><br>
+      - Daniel Pinon (danielpinon@danielpinon.com.br)
+      - Vue Norte 
     </f7-block>
   </f7-page>
 </template>

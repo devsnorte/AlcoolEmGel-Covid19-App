@@ -124,7 +124,7 @@
         const self = this;
         const app = self.$f7;
         app.preloader.show();
-        app.request.postJSON('http://127.0.0.1:8000/api/auth/register', { 
+        app.request.postJSON('http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/register', { 
           name:self.name,
           email:self.email,
           user:self.user,

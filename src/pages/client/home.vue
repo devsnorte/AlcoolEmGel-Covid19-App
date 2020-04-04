@@ -172,7 +172,7 @@
       const self = this;
       const app = self.$f7;
       app.preloader.show();
-      app.request.post('http://127.0.0.1:8000/api/auth/guest', 
+      app.request.post('http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/guest', 
       function (data) {
         app.preloader.hide();
         data = JSON.parse(data);

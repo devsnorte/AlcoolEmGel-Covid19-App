@@ -37,7 +37,7 @@
         const self = this;
         const app = self.$f7;
         app.preloader.show();
-        app.request.postJSON('http://127.0.0.1:8000/api/auth/login', { email:self.username, password: self.password}, 
+        app.request.postJSON('http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/login', { email:self.username, password: self.password}, 
         // Sucess
         (data)=>{
           localStorage.setItem("key",data.access_token);
