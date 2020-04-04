@@ -1,4 +1,3 @@
-
 # Logs
 logs
 *.log
@@ -41,3 +40,6 @@ cordova/www/
 
 # Production build
 www/
+
+# Yarn 
+yarn.lock
