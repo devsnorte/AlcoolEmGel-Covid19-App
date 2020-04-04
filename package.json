@@ -3,8 +3,8 @@
     "private": true,
     "version": "1.0.0",
     "description": "Onde Tem Alcool em Gel",
-    "repository": "",
-    "license": "UNLICENSED",
+    "repository": "https://github.com/vuejs-norte/AlcoolEmGel-Covid19-App.git",
+    "license": "MIT",
     "framework7": {
         "cwd": "/Users/danielpinon/OndeTemAlcool",
         "type": [
