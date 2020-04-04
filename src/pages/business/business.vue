@@ -235,17 +235,23 @@
   };
 </script>
 
-<style>
-  .leaflet-bar a{
-    width: 45px !important;
-    height: 45px !important;
-    line-height: 45px !important;
-  }
-  .btn-ponto-mapa{
-    position: fixed;
-    bottom: 6vh;
-    z-index: 1000;
-  }
+<style scoped>
+.button {
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 96%;
+}
+
+.leaflet-bar a{
+  width: 45px !important;
+  height: 45px !important;
+  line-height: 45px !important;
+}
+.btn-ponto-mapa{
+  position: fixed;
+  bottom: 6vh;
+  z-index: 1000;
+}
 </style>
 
 <!--

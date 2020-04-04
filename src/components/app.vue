@@ -1,28 +1,25 @@
 <template>
 <f7-app :params="f7params" >
 
-  <!-- Left panel with cover effect-->
   <f7-panel left cover>
     <f7-view>
       <f7-page>
         <f7-navbar title="Menu"></f7-navbar>
         <f7-block>
-          Seja bem vindo!
-          <f7-list>
-            <f7-list-item link="/about/" title="Sobre o Aplicativo"></f7-list-item>
-            <!--<f7-list-item link="/form/" title="Form"></f7-list-item>-->
-          </f7-list>  
-        </f7-block>        
+          <h2>Seja bem vindo!</h2>
+        </f7-block>
+        <f7-list>
+          <f7-list-item link="/about/" title="Sobre o Aplicativo"></f7-list-item>
+          <f7-list-item external link="https://github.com/vuejs-norte/AlcoolEmGel-Covid19-App" title="Código Fonte">
+            <f7-icon slot="after" f7="logo_github"></f7-icon>
+          </f7-list-item>
+        </f7-list>          
       </f7-page>
     </f7-view>
   </f7-panel>
 
-
-  <!-- Your main view, should have "view-main" class -->
   <f7-view main class="safe-areas" url="/intro/"></f7-view>
 
-
-  <!-- Popup -->
   <f7-popup id="my-popup">
     <f7-view>
       <f7-page>
@@ -77,22 +74,15 @@
   export default {
     data() {
       return {
-        // Framework7 Parameters
         f7params: {
           id: 'tech.backbonedevs.cadeoalcoolemgel', // App bundle ID
           name: 'Onde Tem Alcool em Gel', // App name
           theme: 'auto', // Automatic theme detection
-
-
-          // App routes
           routes: routes,
-
-          // Input settings
           input: {
             scrollIntoViewOnFocus: Device.cordova && !Device.electron,
             scrollIntoViewCentered: Device.cordova && !Device.electron,
           },
-          // Cordova Statusbar settings
           statusbar: {
             iosOverlaysWebView: true,
             androidOverlaysWebView: false,
@@ -100,6 +90,7 @@
             androidTextColor:"black"
           },
         },
+        
         // Login screen data
         username: '',
         password: '',
@@ -114,14 +105,10 @@
     },
     mounted() {
       this.$f7ready((f7) => {
-        // Init cordova APIs (see cordova-app.js)
         if (Device.cordova) {
           cordovaApp.init(f7);
         }
-        // Call F7 APIs here
       });
     }
   }
-
-  
 </script>
