@@ -125,7 +125,7 @@
       showLongText() { 
         this.showParagraph = !this.showParagraph; 
       },
-      atualizaInfor(){
+      atualizaInfor () {
         const self = this;
         const app = self.$f7;
         app.preloader.show();
@@ -133,7 +133,7 @@
           url:"http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/business/update",
           method:"POST",
           headers:{
-            Authorization:"Bearer "+localStorage.getItem("key")
+            Authorization:"Bearer " + localStorage.getItem("key")
           },
           data:{
             alcool_em_gel: self.data.itens.alcool.gel,
@@ -143,7 +143,12 @@
             aberto: self.data.user.aberto,
           },
           success: (data) => {
-            app.dialog.alert("Salvo com sucesso!");
+            app.toast.create({
+              icon: '<i class="f7-icons">floppy_disk</i>',
+              text: 'Salvo com sucesso!',
+              position: 'center',
+              closeTimeout: 800,
+            }).open();
           },
           error: () => {
             app.dialog.alert("Erro ao atualizar, tente novamente ou entre em contato pelo email danielpinon@danielpinon.com.br");
