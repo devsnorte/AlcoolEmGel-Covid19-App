@@ -17,7 +17,7 @@
     </f7-block>
     <f7-block>
       <center>Contamos com os apoios de:</center><br>
-      - Daniel Pinon (danielpinon@danielpinon.com.br)
+      - Daniel Pinon (<a class="external" href="mailto:danielpinon@danielpinon.com.br">danielpinon@danielpinon.com.br</a>)
       - Vue Norte 
     </f7-block>
   </f7-page>

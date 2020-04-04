@@ -20,7 +20,7 @@
     <f7-list>
       <f7-list-button @click="login">Acessar</f7-list-button>
       <f7-list-button @click="registrar">Registrar</f7-list-button>
-      <f7-block-footer>Problemas com seu acesso?<br>Entre em contato em danielpinon@danielpinon.com.br</f7-block-footer>
+      <f7-block-footer>Problemas com seu acesso?<br>Entre em contato com <a class="external" href="mailto:danielpinon@danielpinon.com.br">danielpinon@danielpinon.com.br</a></f7-block-footer>
     </f7-list>
   </f7-page>
 </template>
