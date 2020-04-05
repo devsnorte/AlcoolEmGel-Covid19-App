@@ -33,7 +33,7 @@
       <!-- Slide 3 -->
       <f7-swiper-slide>
         <center class="padding-top">
-          <h2 class="padding-top">Somos um projeto <br>independente feito por <br>Daniel Pinon com o apoio da comunidade Vue Norte </h2><h3>danielpinon@danielpinon.com.br</h3>
+          <h2 class="padding-top">Somos um projeto <br>independente feito por <br>Daniel Pinon com o apoio da comunidade Vue Norte </h2><h3><a class="external" href="mailto:danielpinon@danielpinon.com.br">danielpinon@danielpinon.com.br</a></h3>
           <img :src="images.vuejsnorte" width="70%">
         </center>
       </f7-swiper-slide>

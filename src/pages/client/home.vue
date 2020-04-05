@@ -172,23 +172,29 @@
       const self = this;
       const app = self.$f7;
       app.preloader.show();
-      app.request.post('http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/guest', 
-      function (data) {
+      app.request.post('http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/guest', function (data) {
         app.preloader.hide();
         data = JSON.parse(data);
-        console.log(data == []);
+
+        const leafletControl = document.getElementsByClassName('leaflet-control-attribution');
+        if (leafletControl != null && leafletControl.length > 0) {
+          const leafletControlLink = leafletControl[0].getElementsByTagName('a');
+          if (leafletControlLink != null && leafletControlLink.length > 0) {
+            document.getElementsByClassName('leaflet-control-attribution')[0].getElementsByTagName('a')[0].className = "external";
+          }
+        }
+
         if(data.length == 0){
-          app.dialog.alert('Sem estabelecimentos cadastrados! Divulgue para facilitar a entrada de novos estabelecimentos.',()=>{
+          app.dialog.alert('Sem estabelecimentos cadastrados! Divulgue para facilitar a entrada de novos estabelecimentos.', () => {
             self.openSite('https://api.whatsapp.com/send?text=Você conhece o aplicativo cade o alcool em gel? Entra no link bit.ly/cadeoalcoolemgel e baixe o app.');
           });
         }else{
           self.lojas = data;
         }
-      },
-      function (data){
+      }, function (data) {
         app.dialog.alert('Erro ao capturar informações do servidor!');
         app.preloader.hide();
-      });                 
+      });
     }
 }; 
 </script>

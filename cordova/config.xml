@@ -1,33 +1,46 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="tech.backbonedevs.cadeoalcoolemgel" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="tech.backbonedevs.cadeoalcoolemgel" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Onde Tem Alcool em Gel</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Aplicativo do para encontrar alcool em gel.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+
+    <author email="danielpinon@danielpinon.com.br" href="http://cordova.io">
+        Daniel Pinon
     </author>
+
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
-    <access origin="*" />
+    <access origin="*://openstreetmap.org" />
+    <access origin="http://cadeoalcoolemgel.danielpinon.com.br/*" />
+    <access origin="https://cadeoalcoolemgel.danielpinon.com.br/*" />
+    <allow-navigation href="http://www.openstreetmap.org" />
+    <allow-navigation href="https://www.openstreetmap.org" />
+    <allow-navigation href="*.openstreetmap.org" />
+    <allow-navigation href="*.*.openstreetmap.org" />
+    <allow-navigation href="*" />
+    <allow-intent href="http://*/*" launch-external="yes" />
+    <allow-intent href="https://*/*" launch-external="yes" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    
     <platform name="android">
-        <allow-intent href="market:*" />
+      <allow-intent href="market:*" />
     </platform>
+    
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
 
-    <allow-navigation href="*" />
-    <access origin="http://cadeoalcoolemgel.danielpinon.com.br/*" />
-
     <platform name="android">
+      <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <application android:usesCleartextTraffic="true" />
+      </edit-config>
       <preference name="StatusBarOverlaysWebView" value="false" />
       <preference name="android-minSdkVersion" value="21" />
       <preference name="SplashMaintainAspectRatio" value="true" />
@@ -49,11 +62,18 @@
       <icon density="xxxhdpi" src="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" />
     </platform>
 
-
     <platform name="ios">
+      <config-file parent="CFBundleDevelopmentRegion" target="*-Info.plist">
+        <string>pt</string>
+      </config-file>
+      <config-file parent="CFBundleLocalizations" target="*-Info.plist">
+        <string>pt</string>
+      </config-file>
       <config-file parent="CFBundleAllowMixedLocalizations" platform="ios" target="*-Info.plist">
         <true />
       </config-file>
+      <preference name="SwiftVersion" value="4" />
+      <preference name="UseSwiftLanguageVersion" value="4.0" />
       <preference name="StatusBarOverlaysWebView" value="true" />
       <splash src="res/screen/ios/Default@2x~universal~anyany.png" />
       <icon height="180" src="res/icon/ios/icon-60x60@3x.png" width="180" />
@@ -77,8 +97,6 @@
       <icon height="167" src="res/icon/ios/icon-83.5x83.5@2x.png" width="167" />
       <icon height="1024" src="res/icon/ios/icon-512x512@2x.png" width="1024" />
     </platform>
-
-
 
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />

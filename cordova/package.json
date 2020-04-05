@@ -1,42 +1,38 @@
 {
-  "name": "tech.backbonedevs.cadeoalcoolemgel",
-  "displayName": "Onde Tem Alcool em Gel",
-  "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "ecosystem:cordova"
-  ],
-  "author": "Apache Cordova Team",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "cordova-android": "^8.1.0",
-    "cordova-ios": "^5.1.1",
-    "cordova-plugin-geolocation": "^4.0.2",
-    "cordova-plugin-keyboard": "^1.2.0",
-    "cordova-plugin-splashscreen": "^5.0.3",
-    "cordova-plugin-statusbar": "^2.4.3",
-    "cordova-plugin-wkwebview-engine": "^1.2.1",
-    "cordova-plugin-wkwebview-file-xhr": "^2.1.4"
-  },
-  "cordova": {
-    "plugins": {
-      "cordova-plugin-statusbar": {},
-      "cordova-plugin-keyboard": {},
-      "cordova-plugin-splashscreen": {},
-      "cordova-plugin-wkwebview-file-xhr": {},
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-geolocation": {}
+    "name": "tech.backbonedevs.cadeoalcoolemgel",
+    "displayName": "Onde Tem Alcool em Gel",
+    "version": "1.0.0",
+    "description": "Aplicativo do para encontrar alcool em gel.",
+    "main": "index.js",
+    "scripts": {},
+    "keywords": [
+        "ecosystem:cordova"
+    ],
+    "author": "Daniel Pinon",
+    "license": "MIT",
+    "dependencies": {
+        "cordova-android": "^8.1.0",
+        "cordova-ios": "^5.1.1",
+        "cordova-plugin-geolocation": "^4.0.2",
+        "cordova-plugin-keyboard": "^1.2.0",
+        "cordova-plugin-splashscreen": "^5.0.3",
+        "cordova-plugin-statusbar": "^2.4.3",
+        "cordova-plugin-whitelist": "^1.3.4",
+        "cordova-plugin-wkwebview-engine": "^1.2.1",
+        "cordova-plugin-wkwebview-file-xhr": "^2.1.4"
     },
-    "platforms": [
-      "ios",
-      "android"
-    ]
-  },
-  "devDependencies": {
-    "cordova-plugin-whitelist": "^1.3.4"
-  }
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-keyboard": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-wkwebview-file-xhr": {},
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-geolocation": {}
+        },
+        "platforms": [
+            "ios",
+            "android"
+        ]
+    }
 }

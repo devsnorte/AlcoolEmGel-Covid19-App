@@ -62,6 +62,7 @@
     </div>
   </f7-page>
 </template>
+
 <script>
 // Import Vue
   import Vue from 'vue';
@@ -81,7 +82,7 @@
       return {  
         // Informações do usuário
         content: 'hello world',
-        logaded:false,
+        logaded: false,
         data:{
           user:{
             aberto:false
@@ -111,7 +112,7 @@
       };
     },
     methods:{
-      loginPage(){
+      loginPage () {
         this.$f7.views.main.router.navigate('/login/')
       },
       // Configurações do mapa
@@ -124,7 +125,7 @@
       showLongText() { 
         this.showParagraph = !this.showParagraph; 
       },
-      atualizaInfor(){
+      atualizaInfor () {
         const self = this;
         const app = self.$f7;
         app.preloader.show();
@@ -132,7 +133,7 @@
           url:"http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/business/update",
           method:"POST",
           headers:{
-            Authorization:"Bearer "+localStorage.getItem("key")
+            Authorization:"Bearer " + localStorage.getItem("key")
           },
           data:{
             alcool_em_gel: self.data.itens.alcool.gel,
@@ -141,13 +142,18 @@
             luva: self.data.itens.luva,
             aberto: self.data.user.aberto,
           },
-          success:(data)=>{
-            app.dialog.alert("Salvo com sucesso!");
+          success: (data) => {
+            app.toast.create({
+              icon: '<i class="f7-icons">floppy_disk</i>',
+              text: 'Salvo com sucesso!',
+              position: 'center',
+              closeTimeout: 800,
+            }).open();
           },
-          error:()=>{
+          error: () => {
             app.dialog.alert("Erro ao atualizar, tente novamente ou entre em contato pelo email danielpinon@danielpinon.com.br");
           },
-          complete:()=>{
+          complete: () => {
             app.preloader.hide();
           },
         });
@@ -166,13 +172,13 @@
             lat: self.currentCenter.lat,
             long: self.currentCenter.lng,
           },
-          success:(data)=>{
+          success: (data) => {
             app.dialog.alert("Salvo com sucesso!");
           },
-          error:()=>{
+          error: () => {
             app.dialog.alert("Erro ao atualizar, tente novamente ou entre em contato pelo email danielpinon@danielpinon.com.br");
           },
-          complete:()=>{
+          complete: () => {
             app.preloader.hide();
           },
         });
@@ -189,9 +195,9 @@
           url:"http://cadeoalcoolemgel.danielpinon.com.br/public/api/auth/business",
           method:"POST",
           headers:{
-            Authorization:"Bearer "+key
+            Authorization:"Bearer " + key
           },
-          success:(data)=>{
+          success: (data) => {
             data = JSON.parse(data);
             self.data.user.aberto = (data.aberto == 1 || data.aberto.localeCompare("true") == 0)?true:false;
             self.data.itens.alcool.gel = (data.alcool_em_gel == 1 || data.alcool_em_gel.localeCompare("true") == 0)?true:false;
@@ -202,32 +208,50 @@
               console.log("True");
             }
             self.logaded = true;
+
+            this.$nextTick(function () {
+              const leafletControl = document.getElementsByClassName('leaflet-control-attribution');
+              if (leafletControl != null && leafletControl.length > 0) {
+                const leafletControlLink = leafletControl[0].getElementsByTagName('a');
+                if (leafletControlLink != null && leafletControlLink.length > 0) {
+                  document.getElementsByClassName('leaflet-control-attribution')[0].getElementsByTagName('a')[0].className = "external";
+                }
+              }
+            })
           },
-          error:()=>{
+          error: () => {
             app.views.main.router.navigate('/login/');
           },
-          complete:()=>{
+          complete: () => {
             app.preloader.hide();
           },
         });
       }else{
         app.preloader.hide();
         this.logaded = false;
+        app.views.main.router.navigate('/login/');
       }
     }
   };
 </script>
-<style>
-  .leaflet-bar a{
-    width: 45px !important;
-    height: 45px !important;
-    line-height: 45px !important;
-  }
-  .btn-ponto-mapa{
-    position: fixed;
-    bottom: 6vh;
-    z-index: 1000;
-  }
+
+<style scoped>
+.button {
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 96%;
+}
+
+.leaflet-bar a{
+  width: 45px !important;
+  height: 45px !important;
+  line-height: 45px !important;
+}
+.btn-ponto-mapa{
+  position: fixed;
+  bottom: 6vh;
+  z-index: 1000;
+}
 </style>
 
 <!--
